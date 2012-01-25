@@ -19,7 +19,7 @@ bindkey -v
 
 # These guys know what they are doing.
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="light"
+export ZSH_THEME="so8res"
 source $ZSH/oh-my-zsh.sh
 
 

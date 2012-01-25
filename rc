@@ -31,8 +31,8 @@ setopt interactivecomments
 unsetopt correct_all
 
 
-# Important variables.
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/nate/.exe:/home/nate/.cabal/bin:/home/nate/.node_modules/.bin
+# Important variables. TODO: make more readable
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/nate/.exe:/home/nate/.bin:/home/nate/.cabal/bin:/home/nate/.node_modules/.bin
 
 
 # Plugins time! TODO: add more plugins

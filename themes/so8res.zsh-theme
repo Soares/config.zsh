@@ -54,7 +54,8 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}"'!'
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[magenta]%}"'*'
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"' ✔'
 
-RPROMPT=$COLOR_DAYNAME\$(date +"%a")' '$COLOR_DAYNUM\$(date +"%d")' '$COLOR_MONTH\$(date +"%b")' '$COLOR_TIME\$(date +"%H:%M")' '\$(battery_mode)\$(battery_info)$COLOR_RESET
+# MAC TODO
+RPROMPT=$COLOR_DAYNAME\$(date +"%a")' '$COLOR_DAYNUM\$(date +"%d")' '$COLOR_MONTH\$(date +"%b")' '$COLOR_TIME\$(date +"%H:%M")$COLOR_RESET
 
 PROMPT=$COLOR_NAME'%n'$COLOR_SPACE'@'$COLOR_HOST'%m'$COLOR_SPACE':'$COLOR_DIR\$(collapse_pwd)\$(git_prompt_info)$COLOR_ARROW'
 '\$(prompt_char)' '$COLOR_RESET

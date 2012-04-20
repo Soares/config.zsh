@@ -18,7 +18,6 @@ bindkey -v
 
 
 # Plugins time!
-# MAC TODO: don't load too many of these. terminator vs terminalapp
 # plugins=(git npm archlinux brew bundler git-flow github knife lein node npm lol pip python rails3 rake rbenv vi-mode)
 plugins=(git brew bundler github knife rails3 rake rbenv vi-mode)
 
@@ -55,7 +54,7 @@ export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 
 
 # My aliases.
-# MAC TODO: alias ls="ls --color=auto --hide='*.pyc'"
+alias ls="ls --color=auto --hide='*.pyc'"
 alias rake='be rake'
 alias cap='be cap'
 alias rspec='be rspec'
@@ -87,9 +86,10 @@ qfind() { find . -iname "*$1*" }
 
 
 # Ls on printing
-# MAC TODO: less clean than the "real" way
+# TODO: Find a better way to do the ls thing (how to we call aliased things?)
 preexec() { ODIR="$(pwd)" }
-precmd() { [[ "$(pwd)" != $ODIR ]] && ls }
+precmd() { [[ "$(pwd)" != $ODIR ]] && ls --color=auto --hide='*.pyc' }
+
 
 
 # TODO: I think that this is included by zsh
@@ -143,7 +143,7 @@ extract() {
 export GIT_EDITOR=vim
 
 
-# TODO: Make the transition between term and X nicer
+# TODO: Move into screen or plugin
 if [ $TERM = "screen-256color" ]; then
 	PS1="%{$fg[green]%}"'$(tmux display-message -p "#W")'"%{$fg[white]%}:"$PS1
 	PS1="%{$fg[blue]%}"'$(tmux display-message -p "#I")'"%{$fg[white]%}."$PS1
@@ -165,17 +165,17 @@ export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
-# MAC TODO
-source "/usr/local/Cellar/rbenv/0.3.0/libexec/../completions/rbenv.zsh"
+# TODO: Find a non-mac way to source the completions:
+# source "/usr/local/Cellar/rbenv/0.3.0/libexec/../completions/rbenv.zsh"
 rbenv rehash 2>/dev/null
 
-# TODO: move to a plugin
-function terminal_theme {
-	export TERMINAL_THEME=$1;
-	# Keep in synch with default terminal theme
-	if [ -z "$TERMINAL_THEME" ]; then export TERMINAL_THEME="Solarized Light"; fi
-	osascript -e "tell application \"Terminal\" to set current settings of window 1 to settings set \"$TERMINAL_THEME\""
-}
-function dark { terminal_theme "Solarized Dark" }
-function light { terminal_theme "Solarized Light" }
-terminal_theme
+# TODO: Make this work on non-mac machines
+# function terminal_theme {
+# 	export TERMINAL_THEME=$1;
+# 	# Keep in synch with default terminal theme
+# 	if [ -z "$TERMINAL_THEME" ]; then export TERMINAL_THEME="Solarized Light"; fi
+# 	osascript -e "tell application \"Terminal\" to set current settings of window 1 to settings set \"$TERMINAL_THEME\""
+# }
+# function dark { terminal_theme "Solarized Dark" }
+# function light { terminal_theme "Solarized Light" }
+# terminal_theme

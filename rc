@@ -154,7 +154,7 @@ elif [ $TERM = "xterm" ]; then
 fi
 
 
-# Muzak (MAC TODO)
+# TODO: Figure out how to pgrep on mac
 # if [ ! "`pgrep mpd`" ]; then
 # 	echo "Starting music player daemon..."
 # 	mpd
@@ -166,16 +166,16 @@ export RUBY_HEAP_SLOTS_INCREMENT=250000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=50000000
 # TODO: Find a non-mac way to source the completions:
-# source "/usr/local/Cellar/rbenv/0.3.0/libexec/../completions/rbenv.zsh"
+source "/usr/local/Cellar/rbenv/0.3.0/libexec/../completions/rbenv.zsh"
 rbenv rehash 2>/dev/null
 
 # TODO: Make this work on non-mac machines
-# function terminal_theme {
-# 	export TERMINAL_THEME=$1;
-# 	# Keep in synch with default terminal theme
-# 	if [ -z "$TERMINAL_THEME" ]; then export TERMINAL_THEME="Solarized Light"; fi
-# 	osascript -e "tell application \"Terminal\" to set current settings of window 1 to settings set \"$TERMINAL_THEME\""
-# }
-# function dark { terminal_theme "Solarized Dark" }
-# function light { terminal_theme "Solarized Light" }
-# terminal_theme
+function terminal_theme {
+	export TERMINAL_THEME=$1;
+	# Keep in synch with default terminal theme
+	if [ -z "$TERMINAL_THEME" ]; then export TERMINAL_THEME="Solarized Light"; fi
+	osascript -e "tell application \"Terminal\" to set current settings of window 1 to settings set \"$TERMINAL_THEME\""
+}
+function dark { terminal_theme "Solarized Dark" }
+function light { terminal_theme "Solarized Light" }
+terminal_theme

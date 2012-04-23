@@ -7,10 +7,11 @@ function prompt_char {
     echo '→'
 }
 function battery_charging {
-    if [[ $(acpi -b) == *Discharging* ]] ; then echo 0; else echo 1; fi
+    # MAC TODO: grep for IsCharging / FullyCharged
+    echo '1'
 }
 function battery_charge {
-    echo $(acpi -b | sed 's/.*, \([0-9]\+\).*/\1/')
+    echo $(ioreg -l | grep -i capacity | tr '\n' ' | ' | awk '{printf("%.0f", $10/$5 * 100)}')
 }
 function battery_mode {
     if [[ $(battery_charging) -eq 1 ]] ; then
@@ -54,7 +55,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[red]%}"'!'
 ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[magenta]%}"'*'
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"' ✔'
 
-# MAC TODO
+# MAC TODO:
 RPROMPT=$COLOR_DAYNAME\$(date +"%a")' '$COLOR_DAYNUM\$(date +"%d")' '$COLOR_MONTH\$(date +"%b")' '$COLOR_TIME\$(date +"%H:%M")$COLOR_RESET
 
 PROMPT=$COLOR_NAME'%n'$COLOR_SPACE'@'$COLOR_HOST'%m'$COLOR_SPACE':'$COLOR_DIR\$(collapse_pwd)\$(git_prompt_info)$COLOR_ARROW'

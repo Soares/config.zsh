@@ -13,11 +13,11 @@ function zle-line-init {
 # If I am using vi keys, I want to know what mode I'm currently using.
 # zle-keymap-select is executed every time KEYMAP changes.
 # From http://zshwiki.org/home/examples/zlewidgets
-rprompt_cached=$RPROMPT
-function zle-line-init zle-keymap-select {
-  RPROMPT="${${KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/$rprompt_cached}"
-  zle reset-prompt
-}
+# rprompt_cached=$RPROMPT
+# function zle-line-init zle-keymap-select {
+#   RPROMPT="${${KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/$rprompt_cached}"
+#   zle reset-prompt
+# }
 
 # Accept RETURN in vi command mode.
 function accept_line {

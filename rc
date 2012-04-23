@@ -54,7 +54,6 @@ export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
 
 
 # My aliases.
-alias ls="ls --color=auto --hide='*.pyc'"
 alias rake='be rake'
 alias cap='be cap'
 alias rspec='be rspec'
@@ -88,7 +87,7 @@ qfind() { find . -iname "*$1*" }
 # Ls on printing
 # TODO: Find a better way to do the ls thing (how to we call aliased things?)
 preexec() { ODIR="$(pwd)" }
-precmd() { [[ "$(pwd)" != $ODIR ]] && ls --color=auto --hide='*.pyc' }
+precmd() { [[ "$(pwd)" != $ODIR ]] && ls }
 
 
 

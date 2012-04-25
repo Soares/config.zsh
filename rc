@@ -179,5 +179,5 @@ function dark { terminal_theme "Solarized Dark" }
 function light { terminal_theme "Solarized Light" }
 terminal_theme
 
-# TODO
+# TODO: Find out who was trying to bind my ^R
 bindkey '^R' history-incremental-search-backward

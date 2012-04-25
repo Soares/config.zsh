@@ -178,3 +178,6 @@ function terminal_theme {
 function dark { terminal_theme "Solarized Dark" }
 function light { terminal_theme "Solarized Light" }
 terminal_theme
+
+# TODO
+bindkey '^R' history-incremental-search-backward

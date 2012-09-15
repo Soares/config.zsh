@@ -1,0 +1,5 @@
+My Z shell configuration.
+
+Originally this was just a custom [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+configuration, but I eventually found it too bloated. This is a pared down and later
+modified version of the above.

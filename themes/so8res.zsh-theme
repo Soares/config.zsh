@@ -36,8 +36,8 @@ function battery_info {
 }
 function session_name {
 	if [[ $TERM == "tmux" ]]; then
-		if [[ $(tmux display-message -p "#S") == "0" ]]; then
-			echo "%{$fg[blue]%}"$(tmux display-message -p ":#S:")
+		if [[ $(tmux display-message -p "#S") != "0" ]]; then
+			echo "%{$fg[blue]%}"$(tmux display-message -p "#S|")
 		fi
 	fi
 }
@@ -68,7 +68,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[green]%}"' ✔'
 
 RPROMPT=$COLOR_DAYNAME\$(date +"%a")' '$COLOR_DAYNUM\$(date +"%d")' '$COLOR_MONTH\$(date +"%b")' '$COLOR_TIME\$(date +"%H:%M")' '\$(battery_mode)\$(battery_info)$COLOR_RESET
 
-PROMPT=\$(window_number)$COLOR_NAME'%n'$COLOR_SPACE'@'$COLOR_HOST'%m'$COLOR_SPACE':'$COLOR_DIR\$(collapse_pwd)\$(git_prompt_info)$COLOR_ARROW'
+PROMPT=\$(session_name)\$(window_number)$COLOR_NAME'%n'$COLOR_SPACE'@'$COLOR_HOST'%m'$COLOR_SPACE':'$COLOR_DIR\$(collapse_pwd)\$(git_prompt_info)$COLOR_ARROW'
 '\$(prompt_char)' '$COLOR_RESET
 
 # Vim doesn't recognize .zsh-theme, I can't imagine why.

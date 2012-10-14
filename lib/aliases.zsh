@@ -6,7 +6,8 @@ alias history='fc -l 1'
 export IGNORED_FILES='*.pyc'
 alias ls="ls --color --hide='$IGNORED_FILES'"
 alias ll="ls -l --color --hide='$IGNORED_FILES'"
-alias lb="ls --hide='$IGNORED_FILES'"
+alias md="mkdir -p"
+alias mkdir="mkdir -p"
 
 alias sim="sudoedit"
 alias o="gnome-open"
@@ -31,7 +32,12 @@ alias music="ncmpcpp"
 alias pdf="evince"
 alias song="cvlc 2>/dev/null&"
 
-local tmux="tmux -f $XDG_CONFIG_HOME/tmux/config"
-local vim="vim -u $XDG_CONFIG_HOME/vim/vim.rc"
-alias tmux=$tmux
-alias vim=$vim
+alias splitflac="cuebreakpoints *.cue | shnsplit -o flac *.flac
+		&& cuetag *.cue split-track*.flac"
+
+# Guys who shouldn't be autocorrected
+alias man='nocorrect man'
+alias mv='nocorrect mv'
+alias mysql='nocorrect mysql'
+alias mkdir='nocorrect mkdir'
+alias gist='nocorrect gist'

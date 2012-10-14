@@ -5,6 +5,7 @@ export XDG_CACHE_HOME=$HOME/.cache
 export PATH=/bin:/sbin                               # root comes last
 export PATH=/usr/bin:/usr/sbin:$PATH                 # /usr is second-last
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH     # /usr/local is before that
+export PATH=$HOME/.cabal/bin:$PATH                   # Language extensions
 export PATH=$HOME/.local/bin:$HOME/.local/sbin:$PATH # $HOME is first
 
 # MAC HAC
@@ -21,7 +22,7 @@ local MULTI_TERM=tmux
 # bindkey -v # TODO: this isn't anything like vim (insert mode, ^R)
 
 ZSH_THEME="so8res"
-PLUGINS="git git-flow extract" # TODO: vi-mode
+PLUGINS="git-flow extract" # TODO: vi-mode
 if [ $DEV_ARCH    ]; then; PLUGINS="archlinux $PLUGINS"; fi
 if [ $DEV_CLOJURE ]; then; PLUGINS="lein $PLUGINS"; fi
 if [ $DEV_NODE    ]; then; PLUGINS="npm $PLUGINS"; fi
@@ -49,3 +50,6 @@ for extension ($ZSH_HOME/lib/*.zsh) source $extension
 
 # Load the theme
 source "$ZSH_HOME/themes/$ZSH_THEME.zsh-theme"
+
+# This is a .rc file that should be highlighted as a zsh file:
+# vim:ft=zsh

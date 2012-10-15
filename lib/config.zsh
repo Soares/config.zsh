@@ -1,16 +1,19 @@
-setopt dvorak autocd beep extendedglob nomatch interactivecomments
-setopt prompt_subst long_list_jobs multios cdablevars
+setopt dvorak prompt_subst
+setopt beep autocd nomatch multios
+setopt extendedglob
+setopt interactivecomments
+setopt long_list_jobs
 stty -ixon
 
 # prompt coloring
-autoload colors
-colors
+autoload colors; colors
+autoload predict; predict-on
 
 # smart urls
 autoload -U url-quote-magic
 zle -N self-insert url-quote-magic
 
-# file rename magic
+# Meta-m to repeat yourself
 bindkey "^[m" copy-prev-shell-word
 
 export CCACHE_DIR=$XDG_CACHE_HOME/ccache

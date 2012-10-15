@@ -31,6 +31,7 @@ alias ebook="calibre"
 alias music="ncmpcpp"
 alias pdf="evince"
 alias song="cvlc 2>/dev/null&"
+alias size="du -h"
 
 alias splitflac="cuebreakpoints *.cue | shnsplit -o flac *.flac
 		&& cuetag *.cue split-track*.flac"

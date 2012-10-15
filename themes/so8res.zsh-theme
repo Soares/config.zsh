@@ -43,7 +43,7 @@ function session_name {
 }
 function window_number {
 	if [[ $TERM == "tmux" ]]; then
-		echo "%{$fg[blue]%}"$(tmux display-message -p "#I|#P")"%{$fg[white]%}".
+		echo "%{$fg[blue]%}"$(tmux display-message -p "#I")"%{$fg[white]%}".
 	fi
 }
 

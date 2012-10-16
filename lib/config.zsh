@@ -6,8 +6,10 @@ setopt long_list_jobs
 stty -ixon
 
 # prompt coloring
-autoload colors; colors
-autoload predict; predict-on
+autoload colors
+colors
+autoload predict
+predict-on
 
 # smart urls
 autoload -U url-quote-magic

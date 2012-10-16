@@ -2,6 +2,7 @@ function collapse_pwd {
 	echo $(pwd | sed -e "s,^$HOME,~,")
 }
 function prompt_char {
+	if [[ $status == '0' ]] ; then ; echo "%{$fg[red]%}" ; fi
 	git branch >/dev/null 2>/dev/null && echo '»' && return
 	hg root >/dev/null 2>/dev/null && echo '⇒' && return
 	echo '→'

@@ -9,7 +9,7 @@ stty -ixon
 autoload colors
 colors
 autoload predict
-predict-on
+zle -N predict-on
 
 # smart urls
 autoload -U url-quote-magic
